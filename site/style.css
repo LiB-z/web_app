@@ -1,10 +1,13 @@
-body, .bt_next, .bt_undo  {
+body, .btn  {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 1.2rem;
+    color: var(--tg-theme-text-color);
+    background: var(--tg-theme-bg-color);
+    transition: all 0.3s ease-in-out;
 }
 textarea {
     resize: none;
@@ -13,16 +16,18 @@ form {
     display: none;
     border: 2px solid gray;
     border-radius: 15px;
+    min-height: 50vh;
 }
 .wrapper, .tc_form, .tc-select_form, .doctype_form, .recipient-type, .claims-reason, .recipient, .claims-description, .requestedSum_form {
     padding: 20px;
     max-width: 390px;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 10px;
+    gap: 20px;
 }
+
 .tc_form, .tc-select_form, .doctype_form, .recipient-type, .claims-reason, .recipient, .claims-description, .requestedSum_form {
     max-width: none;
 }
@@ -41,7 +46,26 @@ input[type='text'] {
         border: 1px solid cornflowerblue;
     }
 }
-.bt_next, .bt_undo {
+
+/* BUTTON */
+.btn {
     padding: 10px 25px;
-    display: inline-block;
+    background: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.bt_next {
+    align-self: flex-end;
+    min-width: calc(50% - 10px);
+    margin-top: auto;
+}
+
+/* BUTTON */
+
+.tc_form {
+    display: flex;
+    margin: 0 auto;
 }
