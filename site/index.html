@@ -10,9 +10,9 @@
 <script src="sript.js"></script>
 <body>
     <div class="wrapper">
-        <form action="" method="get" class="tc_form" autocomplete="off">
+        <form action="" method="get" class="tc_form is-visible" autocomplete="off">
             <label for="tcInput">Пожалуйста, введите название транспортной компании, клиентом которой Вы являетесь: </label>
-            <input type="text" name="tcInput" id="tcInput" required placeholder="Транспортная компания" maxlength="255"/>
+            <input type="text" name="tcInput" id="tcInput" placeholder="Транспортная компания" maxlength="255" required/>
             <div class="btn_wrapper">
                 <button type="reset" class="btn_reset tc_btn btn">Отменить</button>
                 <button class="bt_next tc_btn btn" type="submit">Далее</button>
@@ -22,13 +22,13 @@
             <div class="tc-select_title title">Пожалуйста, выберите одну из найденных транспортных компаний с помощью кнопок</div>
             <div class="tc-select_list">
                 <input type="radio" id="tk-check_1" name="tc">
-                <label for="tk-check_1">Транспортная_1</label>
+                <label for="tk-check_1">ООО «СТА Логистик»</label>
                 <input type="radio" id="tk-check_2" name="tc">
-                <label for="tk-check_2">Транспортная_2</label>
+                <label for="tk-check_2">АО «РЖД Логистика»</label>
                 <input type="radio" id="tk-check_3" name="tc">
-                <label for="tk-check_3">Транспортная_3</label>
+                <label for="tk-check_3">ООО ТК СОТА Логистик</label>
                 <input type="radio" id="tk-check_4" name="tc">
-                <label for="tk-check_4">Транспортная_4</label>
+                <label for="tk-check_4">ООО «Логистические решения»</label>
             </div>
             <div class="btn_wrapper">
                 <button class="bt_undo tc-select_btn btn" type="button">Назад</button>
@@ -49,28 +49,28 @@
                     <label for="invoice_number">
                         Обращаем ваше внимание - подать претензию вы можете только по застрахованному грузу. Если вы не знаете застрахован ваш груз или нет, введите номер накладной для проверки.
                     </label>
-                    <input type="text" name="invoice_number" id="invoice_number" required placeholder="номер накладной"/>
+                    <input type="text" name="invoice_number" id="invoice_number" placeholder="номер накладной"/>
                     <p class="invoice_link">Я не знаю номер</p>
                 </div>
                 <label for="invoice_date">
                     Дата накладной:
-                    <input type="date" name="invoice_date" id="invoice_date" required/>
+                    <input type="date" name="invoice_date" id="invoice_date" />
                 </label>
             </fieldset>
             <fieldset class="policy">
                 <legend class="policy_title title">Пожалуйста, введите номер страхового полиса.</legend>
                 <label for="policy_number">
                     Страховой полис
-                    <input type="text" name="policy_number" id="policy_number" required placeholder="номер страхового полиса"/>
+                    <input type="text" name="policy_number" id="policy_number" placeholder="номер страхового полиса"/>
                 </label>
                 <label for="policy_date">
                     Дата полиса:
-                    <input type="date" name="policy_date" id="policy_date" required/>
+                    <input type="date" name="policy_date" id="policy_date" />
                 </label>
             </fieldset>
             <div class="btn_wrapper">
                 <button type="reset" class="btn_reset doctype_btn btn">Отменить</button>
-                <button class="bt_undo doctype_btn btn" type="button">Назад</button>
+                <button class="bt_undo doctype_btn btn btn_hidden btn_wide" type="button">Назад</button>
                 <button class="bt_next doctype_btn btn" type="submit">Далее</button>
             </div>
         </form>
@@ -88,23 +88,23 @@
                 <legend class="individual_title title">Пожалуйста, заполните реквизиты: </legend>
                 <label for="fullName">
                     Ф.И.О заявителя
-                    <input type="text" name="fullName" id="fullName" required placeholder="Ф.И.О"/>
+                    <input type="text" name="fullName" id="fullName" placeholder="Ф.И.О"/>
                 </label>
                 <label for="itn">
                     ИНН
-                    <input type="text" name="itn" id="itn" required placeholder="ИНН"/>
+                    <input type="text" name="itn" id="itn" placeholder="ИНН"/>
                 </label>
                 <label for="tel">
                     Номер телефона
-                    <input type="tel" name="tel" id="tel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+7-XXX-XXX-XX-XX"/>
+                    <input type="tel" name="tel" id="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+7-XXX-XXX-XX-XX"/>
                 </label>
                 <label for="email">
                     E-mail
-                    <input type="email" name="email" id="email" required placeholder="Email заявителя"/>
+                    <input type="email" name="email" id="email" placeholder="Email заявителя"/>
                 </label>
             </fieldset>
             <div class="btn_wrapper">
-                <button type="reset" class="btn_reset recipient_btn btn">Отменить</button>
+                <button type="reset" class="btn_reset recipient_btn btn_wide btn">Отменить</button>
                 <button class="bt_undo recipient_btn btn" type="button">Назад</button>
                 <button class="bt_next recipient_btn btn" type="submit">Далее</button>
             </div>
@@ -129,7 +129,7 @@
         </form>
         <form action="" method="get" class="claims-reason">
             <label for="claims-reason" class="claims-reason_title">
-                Пожалуйста, введите причину произошедшего в поле ниже
+                Пожалуйста, опишите причину произошедшего в поле:
             </label>
             <textarea name="claims-reason" id="claims-reason" class="claims-reason_text" rows="20" maxlength="500"></textarea>
             <div class="btn_wrapper">
@@ -139,7 +139,7 @@
         </form>
         <form action="" method="get" class="requestedSum_form">
             <label for="requestedSum" class="requestedSum_title">Пожалуйста, введите сумму претензии</label>
-            <input type="text" pattern="" required id="requestedSum" name="requestedSum">
+            <input type="text" id="requestedSum" name="requestedSum">
             <button class="bt_next requestedSum_btn btn" type="submit">Завершить</button>
         </form>
     </div>
