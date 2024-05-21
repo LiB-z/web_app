@@ -1,3 +1,7 @@
+
+* {
+    transition: all 0.3s ease-in-out;
+}
 body, .btn  {
     margin: 0;
     padding: 0;
@@ -7,48 +11,39 @@ body, .btn  {
     line-height: 1.2rem;
     color: var(--tg-theme-text-color);
     background: var(--tg-theme-bg-color);
-    transition: all 0.3s ease-in-out;
 }
-textarea {
-    resize: none;
-}
-form {
-    display: none;
-    border: 2px solid gray;
-    border-radius: 15px;
-    min-height: 50vh;
-}
-.wrapper, .tc_form, .tc-select_form, .doctype_form, .recipient-type, .claims-reason, .recipient, .claims-description, .requestedSum_form {
-    padding: 20px;
-    max-width: 390px;
-    /* display: flex; */
+form, fieldset, .wrapper {
+    /* display: none; */
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
+    padding: 20px;
+    border: 2px solid gray;
+    border-radius: 15px;
+    /* min-height: var(--tg-viewport-stable-height); */
+    gap: 30px;
 }
-
-.tc_form, .tc-select_form, .doctype_form, .recipient-type, .claims-reason, .recipient, .claims-description, .requestedSum_form {
-    max-width: none;
+.wrapper {
+    max-width: 390px;
+    border: none;
 }
-::-webkit-input-placeholder {
-    opacity: 0.4;
-    font-style: italic;
-}
-input[type='text'] {
-    outline: none;
+.tc_form {
+    display: flex;
     margin: 0 auto;
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 5px;
-    transition: all 0.3s ease-out;
-    &:focus{
-        border: 1px solid cornflowerblue;
-    }
 }
-
+.tc-select_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+}
 /* BUTTON */
-.btn {
+.btn_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+.btn, input[type='radio'] + label {
     padding: 10px 25px;
     background: var(--tg-theme-button-color);
     color: var(--tg-theme-button-text-color);
@@ -62,10 +57,61 @@ input[type='text'] {
     min-width: calc(50% - 10px);
     margin-top: auto;
 }
-
+.requestedSum_btn {
+    width: 100%;
+}
 /* BUTTON */
-
-.tc_form {
-    display: flex;
+/* INPUT */
+input[type='text'],input[type='tel'],input[type='email'], input[type="date"] {
+    outline: none;
     margin: 0 auto;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    width: -webkit-fill-available;
+    &:focus{
+        border: 1px solid cornflowerblue;
+    }
+}
+::-webkit-input-placeholder {
+    opacity: 0.4;
+    font-style: italic;
+}
+input[type='radio'] {
+    display: none;
+}
+input[type='radio']:checked + label {
+    background: orangered;
+}
+textarea {
+    resize: none;
+    padding: 5px;
+    width: -webkit-fill-available;
+}
+#invoice_number {
+    margin-top: 15px;
+}
+.invoice > label {
+    margin-bottom: 10px;
+}
+.claimsObject_list {
+    padding: 10px;
+    border-radius: 5px;
+    width: -webkit-fill-available;
+}
+.individual label {
+    text-align: left;
+}
+/* INPUT */
+
+.invoice_link {
+    cursor: pointer;
+    color: var(--tg-theme-link-color);
+    margin: 0;
+    margin-top: 5px;
+    text-align: left;
+}
+.claims-reason_description {
+    opacity: .7;
 }

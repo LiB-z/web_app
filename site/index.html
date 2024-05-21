@@ -13,87 +13,105 @@
         <form action="" method="get" class="tc_form" autocomplete="off">
             <label for="tcInput">Пожалуйста, введите название транспортной компании, клиентом которой Вы являетесь: </label>
             <input type="text" name="tcInput" id="tcInput" required placeholder="Транспортная компания" maxlength="255"/>
-            <button class="bt_next tc_btn btn" type="submit">Далее</button>
+            <div class="btn_wrapper">
+                <button type="reset" class="btn_reset tc_btn btn">Отменить</button>
+                <button class="bt_next tc_btn btn" type="submit">Далее</button>
+            </div>
         </form>
         <form action="" method="get" class="tc-select_form">
-            <div class="tk-check_title title">Пожалуйста, выберите одну из найденных транспортных компаний с помощью кнопок</div>
-            <input type="radio" id="tk-check_1" name="radio">
-            <label for="tk-check_1">Транспортная_1</label>
-            <input type="radio" id="tk-check_2" name="radio">
-            <label for="tk-check_2">Транспортная_2</label>
-            <input type="radio" id="tk-check_3" name="radio">
-            <label for="tk-check_3">Транспортная_3</label>
-            <button class="bt_undo tk-check_btn btn" type="button">Назад</button>
-            <button class="bt_next tk-check_btn btn" type="submit">Далее</button>
+            <div class="tc-select_title title">Пожалуйста, выберите одну из найденных транспортных компаний с помощью кнопок</div>
+            <div class="tc-select_list">
+                <input type="radio" id="tk-check_1" name="tc">
+                <label for="tk-check_1">Транспортная_1</label>
+                <input type="radio" id="tk-check_2" name="tc">
+                <label for="tk-check_2">Транспортная_2</label>
+                <input type="radio" id="tk-check_3" name="tc">
+                <label for="tk-check_3">Транспортная_3</label>
+                <input type="radio" id="tk-check_4" name="tc">
+                <label for="tk-check_4">Транспортная_4</label>
+            </div>
+            <div class="btn_wrapper">
+                <button class="bt_undo tc-select_btn btn" type="button">Назад</button>
+                <button class="bt_next tc-select_btn btn" type="submit">Далее</button>
+            </div>
         </form>
         <form action="" method="get" class="doctype_form">
             <fieldset class="doctype_select">
                 <legend class="doctype_title title">Пожалуйста, выберите документ:</legend>
-                <input type="radio" id="docType_1" name="radio">
-                <label for="doctype_1">Накладная</label>
-                <input type="radio" id="docType_2" name="radio">
-                <label for="doctype_2">Страховой полис</label>
-                <button class="bt_next tk-check_btn btn" type="button">Далее</button>
+                <input type="radio" id="docType_1" name="docType">
+                <label for="docType_1">Накладная</label>
+                <input type="radio" id="docType_2" name="docType">
+                <label for="docType_2">Страховой полис</label>
             </fieldset>
             <fieldset class="invoice">
                 <legend class="invoice_title title">Пожалуйста, введите номер накладной.</legend>
                 <div>
                     <label for="invoice_number">
-                        <p>Обращаем ваше внимание - подать претензию вы можете только по застрахованному грузу. Если вы не знаете застрахован ваш груз или нет, введите номер накладной для проверки.</p>
+                        Обращаем ваше внимание - подать претензию вы можете только по застрахованному грузу. Если вы не знаете застрахован ваш груз или нет, введите номер накладной для проверки.
                     </label>
                     <input type="text" name="invoice_number" id="invoice_number" required placeholder="номер накладной"/>
-                    <p>Я не знаю номер</p>
+                    <p class="invoice_link">Я не знаю номер</p>
                 </div>
-                <label for="invoice_date">Дата накладной:</label>
-                <input type="date" name="invoice_date" id="invoice_date" required/>
-                <button class="bt_next tk_btn btn" type="submit">Далее</button>
+                <label for="invoice_date">
+                    Дата накладной:
+                    <input type="date" name="invoice_date" id="invoice_date" required/>
+                </label>
             </fieldset>
             <fieldset class="policy">
                 <legend class="policy_title title">Пожалуйста, введите номер страхового полиса.</legend>
-                <div>
-                    <label for="policy_number">Страховой полис</label>
+                <label for="policy_number">
+                    Страховой полис
                     <input type="text" name="policy_number" id="policy_number" required placeholder="номер страхового полиса"/>
-                </div>
-                <label for="policy_date">Дата полиса:</label>
-                <input type="date" name="policy_date" id="policy_date" required/>
-                <button class="bt_next tk_btn btn" type="submit">Далее</button>
+                </label>
+                <label for="policy_date">
+                    Дата полиса:
+                    <input type="date" name="policy_date" id="policy_date" required/>
+                </label>
             </fieldset>
+            <div class="btn_wrapper">
+                <button type="reset" class="btn_reset doctype_btn btn">Отменить</button>
+                <button class="bt_undo doctype_btn btn" type="button">Назад</button>
+                <button class="bt_next doctype_btn btn" type="submit">Далее</button>
+            </div>
         </form>
         <form action="" method="get" class="recipient">
             <fieldset class="recipient_type">
-                <div class="tk-check_title title">Пожалуйста, выберите ваш юредический статус</div>
+                <legend class="recipient_title title">Пожалуйста, выберите ваш юредический статус</legend>
                 <input type="radio" id="individual" name="recipient_type" value="individual">
                 <label for="individual">Физ.лицо</label>
                 <input type="radio" id="individualEntrepreneur" name="recipient_type" value="">
                 <label for="individualEntrepreneur">ИП</label>
                 <input type="radio" id="legalEntity" name="recipient_type">
                 <label for="legalEntity">Юр.лицо</label>
-                <button class="bt_next tk-check_btn btn" type="submit">Далее</button>
             </fieldset>
             <fieldset class="individual">
-                <label for="tk">Пожалуйста, заполните реквизиты: </label>
+                <legend class="individual_title title">Пожалуйста, заполните реквизиты: </legend>
                 <label for="fullName">
-                    <input type="text" name="fullName" id="fullName" required placeholder="Ф.И.О"/>
                     Ф.И.О заявителя
+                    <input type="text" name="fullName" id="fullName" required placeholder="Ф.И.О"/>
                 </label>
                 <label for="itn">
-                    <input type="text" name="itn" id="itn" required placeholder="ИНН"/>
                     ИНН
+                    <input type="text" name="itn" id="itn" required placeholder="ИНН"/>
                 </label>
                 <label for="tel">
-                    <input type="tel" name="tel" id="tel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder=""/>
                     Номер телефона
+                    <input type="tel" name="tel" id="tel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+7-XXX-XXX-XX-XX"/>
                 </label>
                 <label for="email">
-                    <input type="email" name="email" id="email" required placeholder="Email заявителя"/>
                     E-mail
+                    <input type="email" name="email" id="email" required placeholder="Email заявителя"/>
                 </label>
-                <button class="bt_next individual_btn btn" type="submit">Далее</button>
             </fieldset>
+            <div class="btn_wrapper">
+                <button type="reset" class="btn_reset recipient_btn btn">Отменить</button>
+                <button class="bt_undo recipient_btn btn" type="button">Назад</button>
+                <button class="bt_next recipient_btn btn" type="submit">Далее</button>
+            </div>
         </form>
-        <form action="" method="get" class="claims-reason_form">
-            <label for="claimsReason">Пожалуйста, выберите предмет обращения</label>
-            <select name="claimsReason" id="claimsReason">
+        <form action="" method="get" class="claims-object_form">
+            <label for="claimsObject">Пожалуйста, выберите предмет обращения</label>
+            <select name="claimsObject" id="claimsObject" class="claimsObject_list">
                 <option value="Утрата груза">Утрата груза</option>
                 <option value="Порча">Порча</option>
                 <option value="Неверная отправка">Неверная отправка</option>
@@ -103,20 +121,27 @@
                 <option value="Несогласие со стоимостью">Несогласие со стоимостью</option>
                 <option value="Иные">Иные</option>
             </select>
-            <div class="claims-reason_description">Some text...</div>
-            <button class="bt_next claims-reason_btn btn" type="submit">Далее</button>
+            <div class="claims-object_description">Some text...</div>
+            <div class="btn_wrapper">
+                <button type="reset" class="btn_reset claims-object_btn btn">Отменить</button>
+                <button class="bt_next claims-object_btn btn" type="submit">Далее</button>
+            </div>
         </form>
-        <form action="" method="get" class="claims-description">
-            <label for="claims-description" class="claims-description_title"></label>
-            <textarea name="claims-description" id="claims-description" class="claims-description_text" rows="20" maxlength="500"></textarea>
-            <button class="bt_next claims-reason_btn btn" type="submit">Далее</button>
+        <form action="" method="get" class="claims-reason">
+            <label for="claims-reason" class="claims-reason_title">
+                Пожалуйста, введите причину произошедшего в поле ниже
+            </label>
+            <textarea name="claims-reason" id="claims-reason" class="claims-reason_text" rows="20" maxlength="500"></textarea>
+            <div class="btn_wrapper">
+                <button type="reset" class="btn_reset claims-reason_btn btn">Отменить</button>
+                <button class="bt_next claims-reason_btn btn" type="submit">Далее</button>
+            </div>
         </form>
         <form action="" method="get" class="requestedSum_form">
             <label for="requestedSum" class="requestedSum_title">Пожалуйста, введите сумму претензии</label>
             <input type="text" pattern="" required id="requestedSum" name="requestedSum">
-            <button class="bt_next requestedSum_btn btn" type="submit">Далее</button>
+            <button class="bt_next requestedSum_btn btn" type="submit">Завершить</button>
         </form>
-        <button type="reset" class="btn_reset btn">Отменить</button>
     </div>
 </body>
 </html>
