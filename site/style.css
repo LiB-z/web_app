@@ -124,6 +124,7 @@ textarea {
 .individual label, .individualEntrepreneur label, .legalEntity label {
     text-align: left;
     opacity: .8;
+    font-size: .8rem;
 }
 select:required:invalid {
     color: gray;
