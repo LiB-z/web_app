@@ -138,8 +138,9 @@ option {
     cursor: pointer;
     color: var(--tg-theme-link-color);
     margin: 0;
-    margin-top: 5px;
+    padding: 10px 0 10px 10px;
     text-align: left;
+    font-size: 0.75rem;
 }
 .claims-object_description {
     opacity: .7;
@@ -152,8 +153,6 @@ option {
     visibility: visible;
 }
 .is-hidden {
-    /* border: 2px darkred solid;
-    background-color:cadetblue; */
     display: none;
     visibility: hidden;
     opacity: 0;

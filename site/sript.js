@@ -8,15 +8,17 @@ const INPUTFIELDS = document.querySelectorAll('input[type=text]');
 const RADIOSELECTS = document.querySelectorAll('input[type=radio]');
 const SELECTFIELDS = document.querySelectorAll('select');
 const TEXTFIELDS = document.querySelectorAll('textarea');
+const SENDBTN = document.querySelector('.requestedSum_btn')
+const INFOLINK = document.querySelector('.invoice_link')
 import claimReason from '../data/claimReason.json' with {type: 'json'};
 
 const TELEGRAM = {
     showPopup() {
         WebApp.showPopup({
             title  : "ВНИМАНИЕ",
-            message: "Все заполненные даннные будут удалены.\n Вы уверены?",
+            message: "Все заполненные даннные будут удалены.",
             buttons: [
-                {id: 'close', type: 'cancel', text: 'Продолжить'},
+                {id: 'close', type: 'cancel'},
                 {id: 'ok', type: 'destructive', text: 'Прервать создание претензии'},
             ]
         }, function (buttonId) {
@@ -24,9 +26,13 @@ const TELEGRAM = {
                 WebApp.close();
             }
         })
+    },
+    showInfoPopup() {
+        WebApp.showAlert({
+            message: "Если вы не знаете номер накладной заявки или заказа, то перейдите по ссылке https://www.dellin.ru/tracker/ и найдите номер через поиск по параметрам.",
+        }, () => {})
     }
 }
-
 function FillCheck(field) {
     let currForm = field.closest('form');
     let nextBtn = currForm.querySelector('.btn_next');
@@ -102,6 +108,14 @@ for(let i = 0; i < FORMS.length; i++) {
         }
     };
     FORMS[i].onclick = e => {
+        if(e.target == SENDBTN) {
+            //Добавить генерацию json
+            //Добавить Delay
+            WebApp.close();
+        }
+        if (e.target == 'INFOLINK') {
+            TELEGRAM.showInfoPopup();
+        }
         if([...PREVBUTTONS].includes(e.target)) {
             OpenPrevForm(e.target);
         }
@@ -111,7 +125,3 @@ for(let i = 0; i < FORMS.length; i++) {
         }
     };
 }
-WebApp.addEventListener('beforeunload',e => {
-    e.preventDefault();
-    TELEGRAM.showPopup();
-});
