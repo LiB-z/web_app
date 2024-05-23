@@ -90,7 +90,7 @@ for(let i = 0; i < FORMS.length; i++) {
             OpenPrevForm(e.target);
         }
         if([...RESETBUTTONS].includes(e.target)) {
-            showPopup("ВНИМАНИЕ","Все заполненные даннные будут удалены. Вы уверены?", [{"type":"ok","text":"Завершить"},{"type":"close","text":"Отмена"}], (e)=> {
+            TG.showPopup("ВНИМАНИЕ","Все заполненные даннные будут удалены. Вы уверены?", [{"type":"ok","text":"Завершить","id":"tgClose"},{"type":"close","text":"Отмена","id":"tgContinue"}], (e)=> {
             })
             TG.close();
         }
