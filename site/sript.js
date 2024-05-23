@@ -1,4 +1,4 @@
-const TG = window.Telegram.WebApp;
+const WebApp = window.Telegram.WebApp;
 const FORMS = document.querySelectorAll("form");
 const FORMLIST = [...FORMS];
 const NEXTBUTTONS = document.querySelectorAll('.btn_next');
@@ -10,6 +10,22 @@ const SELECTFIELDS = document.querySelectorAll('select');
 const TEXTFIELDS = document.querySelectorAll('textarea');
 import claimReason from '../data/claimReason.json' with {type: 'json'};
 
+const TELEGRAM = {
+    showPopup() {
+        WebApp.showPopup({
+            title  : "ВНИМАНИЕ",
+            message: "Все заполненные даннные будут удалены.\n Вы уверены?",
+            buttons: [
+                {id: 'close', type: 'cancel', text: 'Продолжить'},
+                {id: 'ok', type: 'destructive', text: 'Прервать создание претензии'},
+            ]
+        }, function (buttonId) {
+            if (buttonId === 'ok') {
+                WebApp.close();
+            }
+        })
+    }
+}
 
 function FillCheck(field) {
     let currForm = field.closest('form');
@@ -90,18 +106,12 @@ for(let i = 0; i < FORMS.length; i++) {
             OpenPrevForm(e.target);
         }
         if([...RESETBUTTONS].includes(e.target)) {
-            TG.showPopup({
-                title  : "ВНИМАНИЕ",
-                message: "Все заполненные даннные будут удалены. Вы уверены?",
-                buttons: [
-                    {id: 'close', type: 'cancel', text: 'Отмена'},
-                    {id: 'ok', type: 'destructive', text: 'Да, прервать создание претензии'},
-                ]
-            }, function (buttonId) {
-                if (buttonId === 'ok') {
-                    TG.close();
-                }
-            })
+            e.preventDefault();
+            TELEGRAM.showPopup();
         }
     };
 }
+WebApp.addEventListener('beforeunload',e => {
+    e.preventDefault();
+    TELEGRAM.showPopup();
+});
