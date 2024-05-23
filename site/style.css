@@ -18,9 +18,12 @@ form, fieldset, .wrapper {
     align-items: center;
     text-align: center;
     padding: 20px;
-    /* border: 2px solid gray; */
+    border: 2px solid gray;
     border-radius: 15px;
     gap: 30px;
+}
+.fieldset {
+    border: none;
 }
 .wrapper {
     max-width: 390px;
