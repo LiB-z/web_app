@@ -28,9 +28,7 @@ const TELEGRAM = {
         })
     },
     showInfoPopup() {
-        WebApp.showAlert({
-            message: "Если вы не знаете номер накладной заявки или заказа, то перейдите по ссылке https://www.dellin.ru/tracker/ и найдите номер через поиск по параметрам.",
-        }, () => {})
+        WebApp.showAlert("Если вы не знаете номер накладной заявки или заказа, то перейдите по ссылке https://www.dellin.ru/tracker/ и найдите номер через поиск по параметрам.")
     }
 }
 function FillCheck(field) {

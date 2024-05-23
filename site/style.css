@@ -18,7 +18,7 @@ form, fieldset, .wrapper {
     align-items: center;
     text-align: center;
     padding: 20px;
-    border: 2px solid gray;
+    /* border: 2px solid gray; */
     border-radius: 15px;
     gap: 30px;
 }
@@ -123,6 +123,7 @@ textarea {
 }
 .individual label, .individualEntrepreneur label, .legalEntity label {
     text-align: left;
+    opacity: .8;
 }
 select:required:invalid {
     color: gray;
