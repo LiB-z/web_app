@@ -22,9 +22,6 @@ form, fieldset, .wrapper {
     border-radius: 15px;
     gap: 30px;
 }
-fieldset {
-    border: none;
-}
 .wrapper {
     max-width: 390px;
     margin: 0 auto;
