@@ -90,9 +90,18 @@ for(let i = 0; i < FORMS.length; i++) {
             OpenPrevForm(e.target);
         }
         if([...RESETBUTTONS].includes(e.target)) {
-            TG.showPopup("ВНИМАНИЕ","Все заполненные даннные будут удалены. Вы уверены?", [{"type":"ok","text":"Завершить","id":"tgClose"},{"type":"close","text":"Отмена","id":"tgContinue"}], (e)=> {
+            TG.showPopup({
+                title  : "ВНИМАНИЕ",
+                message: "Все заполненные даннные будут удалены. Вы уверены?",
+                buttons: [
+                    {id: 'close', type: 'cancel', text: 'Отмена'},
+                    {id: 'ok', type: 'destructive', text: 'Да, прервать создание претензии'},
+                ]
+            }, function (buttonId) {
+                if (buttonId === 'ok') {
+                    TG.close();
+                }
             })
-            TG.close();
         }
     };
 }
