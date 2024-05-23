@@ -7,18 +7,17 @@
 </head>
 <link rel="stylesheet" href="style.css">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script src="sript.js"></script>
 <body>
     <div class="wrapper">
-        <form action="" method="get" class="tc_form is-visible" autocomplete="off">
+        <form action="" method="get" class="tc_form" autocomplete="off">
             <label for="tcInput">Пожалуйста, введите название транспортной компании, клиентом которой Вы являетесь: </label>
             <input type="text" name="tcInput" id="tcInput" placeholder="Транспортная компания" maxlength="255" required/>
             <div class="btn_wrapper">
                 <button type="reset" class="btn_reset tc_btn btn">Отменить</button>
-                <button class="bt_next tc_btn btn" type="submit">Далее</button>
+                <button class="btn_next tc_btn btn" type="submit" disabled>Далее</button>
             </div>
         </form>
-        <form action="" method="get" class="tc-select_form">
+        <form action="" method="get" class="tc-select_form is-hidden">
             <div class="tc-select_title title">Пожалуйста, выберите одну из найденных транспортных компаний с помощью кнопок</div>
             <div class="tc-select_list">
                 <input type="radio" id="tk-check_1" name="tc">
@@ -31,25 +30,25 @@
                 <label for="tk-check_4">ООО «Логистические решения»</label>
             </div>
             <div class="btn_wrapper">
-                <button class="bt_undo tc-select_btn btn" type="button">Назад</button>
-                <button class="bt_next tc-select_btn btn" type="submit">Далее</button>
+                <button class="btn_undo tc-select_btn btn" type="button">Назад</button>
+                <button class="btn_next tc-select_btn btn" type="submit" disabled>Далее</button>
             </div>
         </form>
-        <form action="" method="get" class="doctype_form">
+        <form action="" method="get" class="doctype_form is-hidden">
             <fieldset class="doctype_select">
                 <legend class="doctype_title title">Пожалуйста, выберите документ:</legend>
-                <input type="radio" id="docType_1" name="docType">
-                <label for="docType_1">Накладная</label>
-                <input type="radio" id="docType_2" name="docType">
-                <label for="docType_2">Страховой полис</label>
+                <input type="radio" id="invoice" name="docType">
+                <label for="invoice">Накладная</label>
+                <input type="radio" id="policy" name="docType">
+                <label for="policy">Страховой полис</label>
             </fieldset>
-            <fieldset class="invoice">
+            <fieldset class="invoice is-hidden">
                 <legend class="invoice_title title">Пожалуйста, введите номер накладной.</legend>
                 <div>
                     <label for="invoice_number">
                         Обращаем ваше внимание - подать претензию вы можете только по застрахованному грузу. Если вы не знаете застрахован ваш груз или нет, введите номер накладной для проверки.
                     </label>
-                    <input type="text" name="invoice_number" id="invoice_number" placeholder="номер накладной"/>
+                    <input type="text" name="invoice_number" id="invoice_number" placeholder="номер накладной" />
                     <p class="invoice_link">Я не знаю номер</p>
                 </div>
                 <label for="invoice_date">
@@ -57,7 +56,7 @@
                     <input type="date" name="invoice_date" id="invoice_date" />
                 </label>
             </fieldset>
-            <fieldset class="policy">
+            <fieldset class="policy is-hidden">
                 <legend class="policy_title title">Пожалуйста, введите номер страхового полиса.</legend>
                 <label for="policy_number">
                     Страховой полис
@@ -69,22 +68,22 @@
                 </label>
             </fieldset>
             <div class="btn_wrapper">
-                <button type="reset" class="btn_reset doctype_btn btn">Отменить</button>
-                <button class="bt_undo doctype_btn btn btn_hidden btn_wide" type="button">Назад</button>
-                <button class="bt_next doctype_btn btn" type="submit">Далее</button>
+                <button type="reset" class="btn_reset doctype_btn btn btn_wide">Отменить</button>
+                <button class="btn_undo doctype_btn btn" type="button">Назад</button>
+                <button class="btn_next doctype_btn btn" type="submit" disabled>Далее</button>
             </div>
         </form>
-        <form action="" method="get" class="recipient">
+        <form action="" method="get" class="recipient is-hidden">
             <fieldset class="recipient_type">
                 <legend class="recipient_title title">Пожалуйста, выберите ваш юредический статус</legend>
                 <input type="radio" id="individual" name="recipient_type" value="individual">
                 <label for="individual">Физ.лицо</label>
-                <input type="radio" id="individualEntrepreneur" name="recipient_type" value="">
+                <input type="radio" id="individualEntrepreneur" name="recipient_type" value="" disabled>
                 <label for="individualEntrepreneur">ИП</label>
-                <input type="radio" id="legalEntity" name="recipient_type">
+                <input type="radio" id="legalEntity" name="recipient_type" disabled>
                 <label for="legalEntity">Юр.лицо</label>
             </fieldset>
-            <fieldset class="individual">
+            <fieldset class="individual is-hidden">
                 <legend class="individual_title title">Пожалуйста, заполните реквизиты: </legend>
                 <label for="fullName">
                     Ф.И.О заявителя
@@ -96,7 +95,7 @@
                 </label>
                 <label for="tel">
                     Номер телефона
-                    <input type="tel" name="tel" id="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+7-XXX-XXX-XX-XX"/>
+                    <input type="tel" name="tel" id="tel" pattern="+[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+7-XXX-XXX-XX-XX"/>
                 </label>
                 <label for="email">
                     E-mail
@@ -105,13 +104,14 @@
             </fieldset>
             <div class="btn_wrapper">
                 <button type="reset" class="btn_reset recipient_btn btn_wide btn">Отменить</button>
-                <button class="bt_undo recipient_btn btn" type="button">Назад</button>
-                <button class="bt_next recipient_btn btn" type="submit">Далее</button>
+                <button class="btn_undo recipient_btn btn" type="button">Назад</button>
+                <button class="btn_next recipient_btn btn" type="submit" disabled>Далее</button>
             </div>
         </form>
-        <form action="" method="get" class="claims-object_form">
+        <form action="" method="get" class="claims-object_form is-hidden">
             <label for="claimsObject">Пожалуйста, выберите предмет обращения</label>
-            <select name="claimsObject" id="claimsObject" class="claimsObject_list">
+            <select name="claimsObject" id="claimsObject" class="claimsObject_list" required>
+                <option value="" disabled selected> Предмет обращения </option>
                 <option value="Утрата груза">Утрата груза</option>
                 <option value="Порча">Порча</option>
                 <option value="Неверная отправка">Неверная отправка</option>
@@ -124,24 +124,25 @@
             <div class="claims-object_description">Some text...</div>
             <div class="btn_wrapper">
                 <button type="reset" class="btn_reset claims-object_btn btn">Отменить</button>
-                <button class="bt_next claims-object_btn btn" type="submit">Далее</button>
+                <button class="btn_next claims-object_btn btn" type="submit" disabled>Далее</button>
             </div>
         </form>
-        <form action="" method="get" class="claims-reason">
+        <form action="" method="get" class="claims-reason is-hidden">
             <label for="claims-reason" class="claims-reason_title">
-                Пожалуйста, опишите причину произошедшего в поле:
+                Пожалуйста, опишите причину произошедшего:
             </label>
-            <textarea name="claims-reason" id="claims-reason" class="claims-reason_text" rows="20" maxlength="500"></textarea>
+            <textarea name="claims-reason" id="claims-reason" class="claims-reason_text" rows="20" maxlength="500" required></textarea>
             <div class="btn_wrapper">
                 <button type="reset" class="btn_reset claims-reason_btn btn">Отменить</button>
-                <button class="bt_next claims-reason_btn btn" type="submit">Далее</button>
+                <button class="btn_next claims-reason_btn btn" type="submit" disabled>Далее</button>
             </div>
         </form>
-        <form action="" method="get" class="requestedSum_form">
+        <form action="" method="get" class="requestedSum_form is-hidden">
             <label for="requestedSum" class="requestedSum_title">Пожалуйста, введите сумму претензии</label>
-            <input type="text" id="requestedSum" name="requestedSum">
-            <button class="bt_next requestedSum_btn btn" type="submit">Завершить</button>
+            <input type="text" id="requestedSum" name="requestedSum" required>
+            <button class="btn_next requestedSum_btn btn" type="submit" disabled>Завершить</button>
         </form>
     </div>
+    <script src="sript.js" type="module"></script>
 </body>
 </html>

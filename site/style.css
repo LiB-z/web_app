@@ -24,6 +24,7 @@ form, fieldset, .wrapper {
 }
 .wrapper {
     max-width: 390px;
+    margin: 0 auto;
     border: none;
 }
 .tc-select_list {
@@ -70,6 +71,11 @@ form, fieldset, .wrapper {
 }
 .requestedSum_btn {
     width: 100%;
+}
+.btn:disabled {
+    background-color: rgb(139, 139, 139);
+    color: #ffffff;
+    cursor: not-allowed;
 }
 /* BUTTON */
 /* INPUT */
@@ -118,9 +124,16 @@ textarea {
 .individual label {
     text-align: left;
 }
-
+select:required:invalid {
+    color: gray;
+  }
+option[value=""][disabled] {
+    display: none;
+}
+option {
+    color: black;
+}
 /* INPUT */
-
 .invoice_link {
     cursor: pointer;
     color: var(--tg-theme-link-color);
@@ -128,20 +141,22 @@ textarea {
     margin-top: 5px;
     text-align: left;
 }
-.claims-reason_description {
+.claims-object_description {
     opacity: .7;
+    min-height: 100px;
 }
-
 /* STATUS */
 .is-visible {
     display: flex;
     opacity: 1;
     visibility: visible;
 }
-/* .is-hidden, form {
+.is-hidden {
+    /* border: 2px darkred solid;
+    background-color:cadetblue; */
     display: none;
-        opacity: 0;
-        visibility: hidden;
-        transition-duration: 0.3s;
-} */
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
 /* STATUS */
