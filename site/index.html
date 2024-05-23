@@ -78,9 +78,9 @@
                 <legend class="recipient_title title">Пожалуйста, выберите ваш юредический статус</legend>
                 <input type="radio" id="individual" name="recipient_type" value="individual">
                 <label for="individual">Физ.лицо</label>
-                <input type="radio" id="individualEntrepreneur" name="recipient_type" value="" disabled>
+                <input type="radio" id="individualEntrepreneur" name="recipient_type" value="individualEntrepreneur">
                 <label for="individualEntrepreneur">ИП</label>
-                <input type="radio" id="legalEntity" name="recipient_type" disabled>
+                <input type="radio" id="legalEntity" name="recipient_type" value="legalEntity">
                 <label for="legalEntity">Юр.лицо</label>
             </fieldset>
             <fieldset class="individual is-hidden">
@@ -102,6 +102,63 @@
                     <input type="email" name="email" id="email" placeholder="Email заявителя"/>
                 </label>
             </fieldset>
+            <fieldset class="individual is-hidden">
+                <legend class="individual_title title">Пожалуйста, заполните реквизиты:</legend>
+                <label for="individualFullName">
+                    Ф.И.О заявителя
+                    <input type="text" name="fullName" id="individualFullName" placeholder="Ф.И.О"/>
+                </label>
+                <label for="individualTtn">
+                    ИНН
+                    <input type="text" name="itn" id="individualTtn" placeholder="ИНН"/>
+                </label>
+                <label for="individualTel">
+                    Номер телефона
+                    <input type="tel" name="tel" id="individualTel" pattern="+[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+7-XXX-XXX-XX-XX"/>
+                </label>
+                <label for="individualEmail">
+                    E-mail
+                    <input type="email" name="email" id="individualEmail" placeholder="Email заявителя"/>
+                </label>
+            </fieldset>
+            <fieldset class="individualEntrepreneur is-hidden">
+                <legend class="individualEntrepreneur_title title">Пожалуйста, заполните реквизиты:</legend>
+                <label for="IEFullName">
+                    Название организации /<br> Ф.И.О контактного лица
+                    <input type="text" name="fullName" id="IEFullName" placeholder="Наименование орг./ Ф.И.О"/>
+                </label>
+                <label for="IEItn">
+                    ИНН
+                    <input type="text" name="itn" id="IEItn" placeholder="ИНН"/>
+                </label>
+                <label for="IETel">
+                    Номер телефона
+                    <input type="tel" name="tel" id="IETel" pattern="+[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+7-XXX-XXX-XX-XX"/>
+                </label>
+                <label for="IEEmail">
+                    E-mail
+                    <input type="email" name="email" id="IEEmail" placeholder="Email заявителя"/>
+                </label>
+            </fieldset>
+            <fieldset class="legalEntity is-hidden">
+                <legend class="legalEntity_title title">Пожалуйста, заполните реквизиты:</legend>
+                <label for="LEFullName">
+                    Название организации /<br> Ф.И.О контактного лица
+                    <input type="text" name="fullName" id="LEFullName" placeholder="Наименование орг./ Ф.И.О"/>
+                </label>
+                <label for="LEItn">
+                    ИНН
+                    <input type="text" name="itn" id="LEItn" placeholder="ИНН"/>
+                </label>
+                <label for="LETel">
+                    Номер телефона
+                    <input type="tel" name="tel" id="LETel" pattern="+[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="+7-XXX-XXX-XX-XX"/>
+                </label>
+                <label for="LEEmail">
+                    E-mail
+                    <input type="email" name="email" id="LEEmail" placeholder="Email заявителя"/>
+                </label>
+            </fieldset>
             <div class="btn_wrapper">
                 <button type="reset" class="btn_reset recipient_btn btn_wide btn">Отменить</button>
                 <button class="btn_undo recipient_btn btn" type="button">Назад</button>
@@ -121,7 +178,7 @@
                 <option value="Несогласие со стоимостью">Несогласие со стоимостью</option>
                 <option value="Иные">Иные</option>
             </select>
-            <div class="claims-object_description">Some text...</div>
+            <div class="claims-object_description">Описание будет доступно после выбора предмета обращения</div>
             <div class="btn_wrapper">
                 <button type="reset" class="btn_reset claims-object_btn btn">Отменить</button>
                 <button class="btn_next claims-object_btn btn" type="submit" disabled>Далее</button>

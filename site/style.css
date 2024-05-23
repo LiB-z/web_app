@@ -121,7 +121,7 @@ textarea {
     border-radius: 5px;
     width: -webkit-fill-available;
 }
-.individual label {
+.individual label, .individualEntrepreneur label, .legalEntity label {
     text-align: left;
 }
 select:required:invalid {

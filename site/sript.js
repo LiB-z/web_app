@@ -113,7 +113,7 @@ for(let i = 0; i < FORMS.length; i++) {
             //Добавить Delay
             WebApp.close();
         }
-        if (e.target == 'INFOLINK') {
+        if (e.target == INFOLINK) {
             TELEGRAM.showInfoPopup();
         }
         if([...PREVBUTTONS].includes(e.target)) {
