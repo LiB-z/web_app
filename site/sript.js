@@ -8,7 +8,7 @@ const INPUTFIELDS = document.querySelectorAll('input[type=text]');
 const RADIOSELECTS = document.querySelectorAll('input[type=radio]');
 const SELECTFIELDS = document.querySelectorAll('select');
 const TEXTFIELDS = document.querySelectorAll('textarea');
-import claimReason from '/data/claimReason.json' with {type: 'json'};
+import claimReason from '../data/claimReason.json' with {type: 'json'};
 
 
 function FillCheck(field) {
