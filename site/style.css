@@ -22,7 +22,7 @@ form, fieldset, .wrapper {
     border-radius: 15px;
     gap: 30px;
 }
-.fieldset {
+fieldset {
     border: none;
 }
 .wrapper {

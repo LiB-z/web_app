@@ -26,9 +26,6 @@ const TELEGRAM = {
                 WebApp.close();
             }
         })
-    },
-    showInfoPopup() {
-        WebApp.showAlert("Если вы не знаете номер накладной заявки или заказа, то перейдите по ссылке https://www.dellin.ru/tracker/ и найдите номер через поиск по параметрам.")
     }
 }
 function FillCheck(field) {
@@ -112,7 +109,7 @@ for(let i = 0; i < FORMS.length; i++) {
             WebApp.close();
         }
         if (e.target == INFOLINK) {
-            TELEGRAM.showInfoPopup();
+            WebApp.showAlert('Если вы не знаете номер накладной заявки или заказа, то перейдите по ссылке https://www.dellin.ru/tracker/ и найдите номер через поиск по параметрам.');
         }
         if([...PREVBUTTONS].includes(e.target)) {
             OpenPrevForm(e.target);
