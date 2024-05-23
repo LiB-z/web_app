@@ -78,12 +78,6 @@ for(let i = 0; i < FORMS.length; i++) {
         e.preventDefault()
         OpenNextForm(e.target);
     };
-    // FORMS[i].onreset = e => {
-    //     e.preventDefault()
-    //     if(confirm('Все заполненные даннные будут сброшены. Вы уверены?')) {
-    //         window.location.reload();
-    //     }
-    // };
     FORMS[i].oninput = e => {
         if(e.target.type == 'radio') {
             SelectCheck(e.target)
@@ -96,6 +90,8 @@ for(let i = 0; i < FORMS.length; i++) {
             OpenPrevForm(e.target);
         }
         if([...RESETBUTTONS].includes(e.target)) {
+            showPopup("ВНИМАНИЕ","Все заполненные даннные будут удалены. Вы уверены?", [{"type":"ok","text":"Завершить"},{"type":"close","text":"Отмена"}], (e)=> {
+            })
             TG.close();
         }
     };
