@@ -96,7 +96,7 @@ for(let i = 0; i < FORMS.length; i++) {
             OpenPrevForm(e.target);
         }
         if([...RESETBUTTONS].includes(e.target)) {
-            webviewClose();
+            TG.close();
         }
     };
 }
