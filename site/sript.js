@@ -90,33 +90,68 @@ function OpenPrevForm(prevBtn){
 }
 
 // Listener's
+//-----------Некорректно отрабатывает на Safari---------------
+// for(let i = 0; i < FORMS.length; i++) {
+//     FORMS[i].onsubmit = e => {
+//         e.preventDefault()
+//         OpenNextForm(e.target);
+//     };
+//     FORMS[i].oninput = e => {
+//         if(e.target.type == 'radio') {
+//             SelectCheck(e.target)
+//         } else {
+//             FillCheck(e.target)
+//         }
+//     };
+//     FORMS[i].onclick = e => {
+//         if(e.target == SENDBTN) {
+//             //Добавить генерацию json
+//             //Добавить Delay
+//             WebApp.close();
+//         }
+//         if (e.target == INFOLINK) {
+//             WebApp.showAlert(`Если вы не знаете номер накладной заявки или заказа, то перейдите по ссылке https://www.dellin.ru/tracker/ и найдите номер через поиск по параметрам.`);
+//         }
+//         if([...PREVBUTTONS].includes(e.target)) {
+//             OpenPrevForm(e.target);
+//         }
+//         if([...RESETBUTTONS].includes(e.target)) {
+//             e.preventDefault();
+//             TELEGRAM.showPopup();
+//         }
+//     };
+// }
+//------------------------------------------------------------
 for(let i = 0; i < FORMS.length; i++) {
-    FORMS[i].onsubmit = e => {
-        e.preventDefault()
-        OpenNextForm(e.target);
-    };
-    FORMS[i].oninput = e => {
-        if(e.target.type == 'radio') {
-            SelectCheck(e.target)
-        } else {
-            FillCheck(e.target)
-        }
-    };
-    FORMS[i].onclick = e => {
-        if(e.target == SENDBTN) {
-            //Добавить генерацию json
-            //Добавить Delay
-            WebApp.close();
-        }
-        if (e.target == INFOLINK) {
-            WebApp.showAlert(`Если вы не знаете номер накладной заявки или заказа, то перейдите по ссылке https://www.dellin.ru/tracker/ и найдите номер через поиск по параметрам.`);
-        }
-        if([...PREVBUTTONS].includes(e.target)) {
-            OpenPrevForm(e.target);
-        }
-        if([...RESETBUTTONS].includes(e.target)) {
-            e.preventDefault();
-            TELEGRAM.showPopup();
-        }
-    };
+    FORMS[i].addEventListener('submit', ReactAtSubmit);
+    FORMS[i].addEventListener('input', ReactAtRadioBtn);
+    FORMS[i].addEventListener('click', ReactAtFormAction);
 }
+function ReactAtSubmit(e) {
+    e.preventDefault()
+    OpenNextForm(e.target);
+};
+function ReactAtFormAction(e) {
+    if(e.target == SENDBTN) {
+        //Добавить генерацию json
+        //Добавить Delay
+        WebApp.close();
+    }
+    if (e.target == INFOLINK) {
+        WebApp.showAlert(`Если вы не знаете номер накладной заявки или заказа, то перейдите по ссылке https://www.dellin.ru/tracker/ и найдите номер через поиск по параметрам.`);
+    }
+    if([...PREVBUTTONS].includes(e.target)) {
+        OpenPrevForm(e.target);
+    }
+    if([...RESETBUTTONS].includes(e.target)) {
+        e.preventDefault();
+        TELEGRAM.showPopup();
+    }
+};
+function ReactAtRadioBtn(e) {
+    if(e.target.type == 'radio') {
+        SelectCheck(e.target)
+    } else {
+        FillCheck(e.target)
+    }
+};
