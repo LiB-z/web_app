@@ -3,8 +3,13 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.filters import Command
 from aiogram.types.web_app_info import WebAppInfo
+from os import environ
+from dotenv import load_dotenv
+load_dotenv()
 
-bot = Bot(token='6850842462:AAEGPxJ6RiyKkJIEfetAdIMGnzXOXTNG1Uk')
+TOKEN = environ["TOKEN"]
+
+bot = Bot(token = TOKEN)
 dp = Dispatcher()
 
 @dp.message(Command('start'))
