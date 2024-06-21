@@ -7,6 +7,10 @@
     --color-primary: #FE7A42;
     --color-lock: #BDBDBD;
 }
+body{
+	color: #fff;
+	background: #fff;
+}
 .container {
     padding: 32px 12px;
 }

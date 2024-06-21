@@ -14,11 +14,16 @@ dp = Dispatcher()
 
 @dp.message(Command('start'))
 async def start(message: Message):
-    keyboard = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text='Создать претензию', web_app=WebAppInfo(url='https://lib-z.github.io/web_app/site/'))]],
-                               resize_keyboard=True)
-    inlineKeyboard = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text='Создать претензию', web_app=WebAppInfo(url='https://lib-z.github.io/web_app/site/'))]])
-    await message.answer('Добрый день!', reply_markup=keyboard)
-    await message.answer('Для создания претензии нажмите кнопку \"Создать претензию\"', reply_markup=inlineKeyboard)
+    # keyboard = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text='Заполнить персональные данные', web_app=WebAppInfo(url='https://lib-z.github.io/web_app/web/pages/form-individual/'))]],
+    #                            resize_keyboard=True)
+    inlineKeyboard = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text='Для физ.лиц', web_app=WebAppInfo(url='https://lib-z.github.io/web_app/web/pages/form-individual/'))]])
+    inlineKeyboard_2 = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text='Для юр.лиц', web_app=WebAppInfo(url='https://lib-z.github.io/web_app/web/pages/form-legalEntity/'))]])
+    inlineKeyboard_3 = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text='Для ИП', web_app=WebAppInfo(url='https://lib-z.github.io/web_app/web/pages/form-individualEntrepreneur/'))]])
+    # await message.answer('Добрый день!', reply_markup=keyboard)
+    await message.answer('Добрый день!')
+    await message.answer('Для ввода информации, пожалуйста, нажмите кнопку \"Заполнить персональные данные физ.лица\"', reply_markup=inlineKeyboard)
+    await message.answer('Для ввода информации, пожалуйста, нажмите кнопку \"Заполнить персональные данные юр.лица\"', reply_markup=inlineKeyboard_2)
+    await message.answer('Для ввода информации, пожалуйста, нажмите кнопку \"Заполнить персональные данные ИП\"', reply_markup=inlineKeyboard_2)
 
 
 async def main():
