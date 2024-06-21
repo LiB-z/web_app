@@ -1,3 +1,4 @@
+const WebApp = window.Telegram.WebApp;
 const FORM = document.querySelector(".individualEntrepreneur");
 const INPUTSLIST = document.querySelectorAll("input");
 const BTNSUBMIT = document.querySelector(".btn__sub");
