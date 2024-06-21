@@ -9,6 +9,7 @@ let filledCounter = 0;
 //---
 let tg = window.Telegram.WebApp;
 tg.setBackgroundColor ('#FFFFFF');
+tg.setHeaderColor('#FFFFFF');
 //---
 
 INPUTSLIST.forEach((input) => {
@@ -140,6 +141,9 @@ function FillCheck(el, prevValue = "", inputID, validLength) {
 
 FORM.onsubmit = (e) => {
   e.preventDefault();
+  if(filledCounter >= 3 && !BTNSUBMIT.classList.contains("locked")) {
+    WebApp.close();
+  }
 };
 BTNUNDO.onclick = (e) => {
     WebApp.close();

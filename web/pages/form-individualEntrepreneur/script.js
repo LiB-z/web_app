@@ -140,6 +140,9 @@ function FillCheck(el, prevValue = "", inputID, validLength) {
 
 FORM.onsubmit = (e) => {
   e.preventDefault();
+  if(filledCounter >= 4 && !BTNSUBMIT.classList.contains("locked")) {
+    WebApp.close();
+  }
 };
 BTNUNDO.onclick = (e) => {
     WebApp.close();
