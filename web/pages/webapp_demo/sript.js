@@ -1,16 +1,11 @@
 const WebApp = window.Telegram.WebApp;
 const FORMS = document.querySelectorAll("form");
 const FORMLIST = [...FORMS];
-const NEXTBUTTONS = document.querySelectorAll('.btn_next');
 const PREVBUTTONS = document.querySelectorAll('.btn_undo');
 const RESETBUTTONS = document.querySelectorAll('.btn_reset');
-const INPUTFIELDS = document.querySelectorAll('input[type=text]');
-const RADIOSELECTS = document.querySelectorAll('input[type=radio]');
-const SELECTFIELDS = document.querySelectorAll('select');
-const TEXTFIELDS = document.querySelectorAll('textarea');
 const SENDBTN = document.querySelector('.requestedSum_btn')
 const INFOLINK = document.querySelector('.invoice_link')
-import claimReason from '../data/claimReason.json' with {type: 'json'};
+import claimReason from '../../../data/claimReason.json' with {type: 'json'};
 
 const TELEGRAM = {
     showPopup() {

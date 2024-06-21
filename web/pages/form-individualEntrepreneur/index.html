@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/normalize.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js" type="module"></script>
+</head>
+<body>
+    <div class="container">
+        <form action="" method="post" class="individualEntrepreneur" autocomplete="off">
+            <div class="form_title">Персональные данные</div>
+            <label class="individualEntrepreneur__organizationName" for="individualEntrepreneurOrganizationName">
+                <span class="individualEntrepreneur__input-text">Наименование ИП</span>
+                <input type="text" id="individualEntrepreneurOrganizationName" autocomplete="off" minlength="3" maxlength="255" pattern="[a-zA-Zа-яА-ЯёЁ\s]*">
+            </label>
+            <label class="individualEntrepreneur__fullname" for="individualEntrepreneurFullname">
+                <span class="individualEntrepreneur__input-text">ФИО контактного лица</span>
+                <input type="text" id="individualEntrepreneurFullname" autocomplete="off" minlength="3" maxlength="255" pattern="[a-zA-Zа-яА-ЯёЁ\s]*">
+            </label>
+            <label class="individualEntrepreneur__itn" for="individualEntrepreneurItn">
+                <span class="individualEntrepreneur__input-text">ИНН</span>
+                <input type="text" id="individualEntrepreneurItn" autocomplete="off" maxlength="10" inputmode="numeric" pattern="[0-9]*">
+                <p class="individualEntrepreneur__error">ИНН должен состоять из 10 цифр. Пожалуйста, укажите корректный ИНН</p>
+            </label>
+            <label class="individualEntrepreneur__phone" for="individualEntrepreneurPhone">
+                <span class="individualEntrepreneur__input-text">Номер телефона</span>
+                <input type="tel" id="individualEntrepreneurPhone" autocomplete="off" maxlength="12" placeholder="+7XXXXXXXXXX">
+            </label>
+            <label class="individualEntrepreneur__email" for="individualEntrepreneurEmail">
+                <span class="individualEntrepreneur__input-text">E-mail</span>
+                <input type="email" id="individualEntrepreneurEmail" autocomplete="off" maxlength="100">
+                <p class="individualEntrepreneur__error">E-mail должен соответствовать формату <span>user@example.com</span></p>
+            </label>
+            <div class="individualEntrepreneur__bottom">
+                <btn class="individualEntrepreneur__btn btn__undo btn" type="button">Назад</btn>
+                <button class="individualEntrepreneur__btn btn__sub btn locked" type="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

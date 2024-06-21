@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --color-invalid: #E92E4A;
+    --color-link: #145FF5;
+    --color-primary: #FE7A42;
+    --color-lock: #BDBDBD;
+}
+.container {
+    padding: 32px 12px;
+}
+.individual, .individualEntrepreneur, .legalEntity {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Golos Text;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #14141A;
+}
+.form_title {
+    font-family: Open Sans;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+.individual input, .individualEntrepreneur input, .legalEntity input {
+    border: 1px solid #E0E0E0;
+    padding: 8px 8px 8px 12px;
+    border-radius: 8px;
+    width: 100%;
+}
+.individual input:focus, .individualEntrepreneur input:focus, .legalEntity input:focus {
+    outline: none;
+}
+.individual input:-webkit-autofill,
+.individual input:-webkit-autofill:hover,
+.individual input:-webkit-autofill:focus,
+.individualEntrepreneur input:-webkit-autofill,
+.individualEntrepreneur input:-webkit-autofill:hover,
+.individualEntrepreneur input:-webkit-autofill:focus,
+.legalEntity input:-webkit-autofill,
+.legalEntity input:-webkit-autofill:hover,
+.legalEntity input:-webkit-autofill:focus {
+    -webkit-box-shadow:0 0 0 150px #fff inset;
+}
+.individual label, .individualEntrepreneur label, .legalEntity label  {
+    position: relative;
+}
+.individual__input-text, .individualEntrepreneur__input-text, .legalEntity__input-text {
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    left: 12px;
+    top: -8px;
+    padding: 0 3px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #5E606D;
+}
+.individual__input-text::after, .individualEntrepreneur__input-text::after, .legalEntity__input-text::after {
+    content: "*";
+    padding-left: 3px;
+    color: var(--color-invalid);
+}
+.individual__itn p, .individual__email p, .individualEntrepreneur__itn p, .individualEntrepreneur__email p, .legalEntity__itn p, .legalEntity__email p {
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-invalid);
+    margin: 4px 0 0 0;
+}
+.individual__email p span, .individualEntrepreneur__email p span, .legalEntity__email p span {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+}
+.individual__error, .individualEntrepreneur__error, .legalEntity__error {
+    max-height: 0px;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
+.individual__bottom, .individualEntrepreneur__bottom, .legalEntity__bottom  {
+    display: flex;
+    justify-content: space-between;
+}
+.btn__undo {
+    width: 47.97%;
+    padding: 8px 0;
+    border: 1px solid #697890;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #6E7180;
+    text-align: center;
+}
+.btn__sub {
+    width: 47.97%;
+    padding: 8px 0;
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+}
+.btn__sub:focus, .btn__sub:focus-visible {
+    outline: none;
+}
+.btn {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+/* STATUS */
+.locked {
+    border: 1px solid var(--color-lock);
+    background-color: var(--color-lock);
+    cursor: auto;
+}
+*.incorrect input {
+    border: 1px solid var(--color-invalid);
+}
+*.incorrect .individual__error, *.incorrect .individualEntrepreneur__error, *.incorrect .legalEntity__error {
+    max-height: 50px;
+}
+/* STATUS */
