@@ -8,8 +8,12 @@ const PHONEREGEX =   /^[\+]?[0-9]{0,3}\W?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]
 let filledCounter = 0;
 let url = window.location.search;
 let url2 = window.location.href;
-let userID = url.substring(url.lastIndexOf('=' + 1));
-console.log("PRUFFF's FOR DIMA: ", url, url2, userID);
+let userID = url.substring(url.lastIndexOf('=') + 1);
+console.log("PRUFFF's FOR DIMA: ", userID);
+
+window.addEventListener("DOMContentLoaded", (e) => {
+  INPUTSLIST[0].value = `А ВОТ и ID, из ссылки: ${userID}`;
+})
 
 //---
 let tg = window.Telegram.WebApp;

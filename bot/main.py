@@ -20,7 +20,7 @@ async def start(message: Message):
     await message.answer('Добрый день!')
     await message.answer('Для ввода информации, пожалуйста, нажмите кнопку \"Заполнить персональные данные физ.лица\"', reply_markup=inlineKeyboard)
     await message.answer('Для ввода информации, пожалуйста, нажмите кнопку \"Заполнить персональные данные юр.лица\"', reply_markup=inlineKeyboard_2)
-    await message.answer('Для ввода информации, пожалуйста, нажмите кнопку \"Заполнить персональные данные ИП\"', reply_markup=inlineKeyboard_2)
+    await message.answer('Для ввода информации, пожалуйста, нажмите кнопку \"Заполнить персональные данные ИП\"', reply_markup=inlineKeyboard_3)
 
 
 async def main():
