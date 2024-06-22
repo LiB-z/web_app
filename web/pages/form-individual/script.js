@@ -6,9 +6,10 @@ const BTNUNDO = document.querySelector(".btn__undo");
 const MAILREGEX = /^[A-Za-z0-9._%+\-\']+@[A-Za-z0-9.-]+\.[A-Za-z]{2,5}$/;
 const PHONEREGEX =   /^[\+]?[0-9]{0,3}\W?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 let filledCounter = 0;
-let url = window.location.pathname;
+let url = window.location.search;
+let url2 = window.location.href;
 let userID = url.substring(url.lastIndexOf('=' + 1));
-console.log("PRUFFF's FOR DIMA: ", url, userID)
+console.log("PRUFFF's FOR DIMA: ", url, url2, userID);
 
 //---
 let tg = window.Telegram.WebApp;
