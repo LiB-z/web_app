@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор нескольких файлов</title>
+</head>
+<body>
+    <h1>Выберите файлы</h1>
+    <button id="chooseFiles">Выбрать файлы</button>
+    <div id="fileList"></div>
+
+    <script>
+        document.getElementById('chooseFiles').addEventListener('click', async () => {
+            try {
+                const fileHandles = await window.showOpenFilePicker({
+                    multiple: true // Опция для множественного выбора
+                });
+
+                const fileList = document.getElementById('fileList');
+                fileList.innerHTML = ''; // Очистка предыдущего списка файлов
+
+                for (const fileHandle of fileHandles) {
+                    const file = await fileHandle.getFile();
+                    const listItem = document.createElement('div');
+                    listItem.textContent = file.name; // Отображаем имя файла
+                    fileList.appendChild(listItem);
+                }
+            } catch (error) {
+                console.error('Ошибка при выборе файлов:', error);
+            }
+        });
+    </script>
+</body>
+</html>
