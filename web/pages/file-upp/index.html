@@ -764,7 +764,7 @@
         <script>
             "use strict";
             function getFileHandle() {
-                return "showOpenFilePicker"in window ? window.showOpenFilePicker({multiple: true}).then(e => e[0]) : window.chooseFileSystemEntries()
+                return "showOpenFilePicker"in window ? window.showOpenFilePicker().then(e => e[0]) : window.chooseFileSystemEntries()
             }
             function getNewFileHandle() {
                 if ("showSaveFilePicker"in window) {
