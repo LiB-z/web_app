@@ -764,7 +764,7 @@
         <script>
             "use strict";
             function getFileHandle() {
-                return "showOpenFilePicker"in window ? window.showOpenFilePicker().then(e => e[0]) : window.chooseFileSystemEntries()
+                return "showOpenFilePicker"in window ? window.showOpenFilePicker({multiple: true}).then(e => e[0]) : window.chooseFileSystemEntries()
             }
             function getNewFileHandle() {
                 if ("showSaveFilePicker"in window) {
@@ -790,7 +790,6 @@
                 })
             }
             function readFile(e) {
-                console.log(e)
                 return e.text ? e.text() : _readFileLegacy(e)
             }
             function _readFileLegacy(e) {
@@ -1078,40 +1077,24 @@
             !function(e) {
                 const t = document.getElementById("filePicker")
                   , n = document.getElementById("aDownloadFile");
-                  e.getFileLegacy = () => new Promise((resolve, reject) => {
-                    t.onchange = async (event) => {
-                        const files = Array.from(t.files);
-                        if (files.length === 0) {
-                            return reject(new Error("No files selected"));
-                        }
-                        
-                        let allContents = ''; // переменная для хранения содержания всех файлов
-                        
-                        try {
-                            for (const file of files) {
-                                const content = await readFileContent(file);
-                                allContents += content + '\n'; // объединение содержимого файлов
-                            }
-                            resolve(allContents); // возврат объединённого содержимого
-                        } catch (err) {
-                            reject(err);
-                        }
-                    };
-                    
-                    t.click();
-                });
-                // Функция для чтения содержимого файла
-    async function readFileContent(file) {
-        const text = await file.text(); // читаем содержимое файла как текст
-        return text;
-    }
-
-    e.saveAsLegacy = (filename = "Untitled.txt", content) => {
-        const fileToSave = new File([content], filename, { type: "text/plain" });
-        n.href = window.URL.createObjectURL(fileToSave);
-        n.setAttribute("download", filename);
-        n.click();
-    };
+                e.getFileLegacy = () => new Promise( (e, n) => {
+                    t.onchange = c => {
+                        const o = t.files[0];
+                        o ? e(o) : n(new Error("AbortError"))
+                    }
+                    ,
+                    t.click()
+                }
+                ),
+                e.saveAsLegacy = (e, t) => {
+                    e = e || "Untitled.txt";
+                    const c = new File([t],"",{
+                        type: "text/plain"
+                    });
+                    n.href = window.URL.createObjectURL(c),
+                    n.setAttribute("download", e),
+                    n.click()
+                }
             }(app);
         </script>
     </body>
